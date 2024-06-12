@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+    mongo:
+      image: mongo:latest
+      restart: always
+      container_name: mongo
+      volumes:
+        - ./db/:/data/db
+      ports:
+        - 27017:27017
+   
+
+# version: "3"
+# services:
+#   rabbitmq:
+#     image: rabbitmq:alpine
+#     container_name: rabbitmq
+#   mongo:
+#     image: mongo:latest
+#     restart: always
+#     container_name: mongo
+#     volumes:
+#       - ./db/:/data/db
+  # products:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./products
+  #   container_name: products
+  #   ports:
+  #     - "8082:8082"
+  #   links:
+  #     - nosql-db
+  #   restart: always
+  #   depends_on:
+  #     - "nosql-db"
+  #     - "rabbitmq"
+  #   volumes:
+  #     - .:/app
+  #     - /app/products/node_modules
+
+  #   env_file:
+  #     - ./products/.env.dev
+  
+  # nginx-proxy:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./proxy
+  #   depends_on:
+  #     - products
+  #   ports:
+  #     - 80:80
+  

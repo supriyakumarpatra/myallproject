@@ -1,0 +1,5 @@
+FROM python
+
+WORKDIR /code
+
+COPY app.py /code/
